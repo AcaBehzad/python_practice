@@ -44,30 +44,28 @@ def city_sep(all_members: list) -> dict[str:list]:
     return city_sep_members
             
 
-def bmi_filter(bmi_caled_members : list) -> dict[str:list]:
+def bmi_filter(bmi_caled_members : list) -> list[dict]:
     """
     This function separates members based on their BMI into 4 groups.
     
     :param bmi_caled_members: List of all members with their BMI calculated.
     :type bmi_caled_members: list
-    :return: A dictionary with 4 keys and under each key there is a list containing all members in that group.
-    :rtype: dict
+    :return: A list which has member's BMI group specified. Each member is represented by a dict, 
+    and a key exists in that dict called bmi group which determines member's group.
+    :rtype: list
     """
-    bmi_group = {'underweight':[],
-                 'normal weight':[],
-                 'overweight':[],
-                 'obese': []}
-    for member in bmi_caled_members:
+    bmi_gped_members = bmi_caled_members
+    for member in bmi_gped_members:
         if member['bmi'] < 18.5: 
-            bmi_group['underweight'].append(member)
+            member['bmi group'] = 'underweighted'
         elif member['bmi'] < 24.9:
-            bmi_group['normal weight'].append(member)
+            member['bmi group'] = 'normal'
         elif member['bmi'] < 29.9:
-            bmi_group['overweight'].append(member)
+            member['bmi group'] = 'overweighted'
         else:
-            bmi_group['obese'].append(member)
+            member['bmi group'] = 'obese'
     
-    return bmi_group
+    return bmi_gped_members
 
 
 def age_filter(all_members: list) -> dict[str:list]:
@@ -76,22 +74,20 @@ def age_filter(all_members: list) -> dict[str:list]:
     
     :param all_members: List containing info of all members (Each member is a dict)
     :type all_members: list
-    :return: it returns a dict with 4 keys, and its values are lists containing info of members in 
-    that age group
-    :rtype: dict
+    :return: A list which has member's age group specified. Each member is represented by a dict, 
+    and a key exists in that dict called age group which determines member's age group.
+    :rtype: list
     """
-    age_group = {'youth': [],
-                 'adult': [],
-                 'middle age': [],
-                 'old': []}
-    for member in all_members:
-        if int(member['age']) < 23:
-            age_group['youth'].append(member)
-        elif int(member['age']) < 40:
-            age_group['adult'].append(member)
-        elif int(member['age']) < 60:
-            age_group['middle age'].append(member)
-        else:
-            age_group['old'].append(member)
+    age_gped_members = all_members
 
-    return age_group
+    for member in age_gped_members:
+        if int(member['age']) < 23:
+            member['age group'] = 'youth'
+        elif int(member['age']) < 40:
+            member['age group'] = 'adult'
+        elif int(member['age']) < 60:
+            member['age group'] = 'middle age'
+        else:
+            member['age group'] = 'old'
+
+    return age_gped_members
