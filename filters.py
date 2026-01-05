@@ -68,3 +68,30 @@ def bmi_filter(bmi_caled_members : list) -> dict[str:list]:
             bmi_group['obese'].append(member)
     
     return bmi_group
+
+
+def age_filter(all_members: list) -> dict[str:list]:
+    """
+    Age filter filters all member based on their ages between 4 group.
+    
+    :param all_members: List containing info of all members (Each member is a dict)
+    :type all_members: list
+    :return: it returns a dict with 4 keys, and its values are lists containing info of members in 
+    that age group
+    :rtype: dict
+    """
+    age_group = {'youth': [],
+                 'adult': [],
+                 'middle age': [],
+                 'old': []}
+    for member in all_members:
+        if int(member['age']) < 23:
+            age_group['youth'].append(member)
+        elif int(member['age']) < 40:
+            age_group['adult'].append(member)
+        elif int(member['age']) < 60:
+            age_group['middle age'].append(member)
+        else:
+            age_group['old'].append(member)
+
+    return age_group
