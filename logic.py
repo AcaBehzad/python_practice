@@ -32,7 +32,11 @@ def bmi_calculator(all_members: list) -> list:
     
     :param all_members: List of all members
     :type all_members: list
+<<<<<<< HEAD
     :return: it adds BMI to each member data,and returns new list of all members with BMI values added.
+=======
+    :return: It adds BMI to each member data,and returns new list of all members with BMI values added.
+>>>>>>> add-new-filters
     :rtype: list
     """
     for member in all_members:
