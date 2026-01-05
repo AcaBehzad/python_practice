@@ -68,7 +68,7 @@ def bmi_filter(bmi_caled_members : list) -> list[dict]:
     return bmi_gped_members
 
 
-def age_filter(all_members: list) -> dict[str:list]:
+def age_filter(all_members: list) -> list[dict]:
     """
     Age filter filters all member based on their ages between 4 group.
     
