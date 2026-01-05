@@ -8,9 +8,5 @@ from filters import sex_sep, city_sep
 
 fieldnames = read_data(INPUT_FILE)[0]
 all_members = read_data(INPUT_FILE)[1]
-
 [male_members , female_members] = sex_sep(all_members)
-
 city_sep_members = city_sep(all_members)
-
-print(city_sep_members['Mashhad'][0:2])
